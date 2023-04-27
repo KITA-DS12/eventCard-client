@@ -38,8 +38,8 @@ export default {
     drawer: null,
     links: [
         ['mdi-inbox-arrow-down', 'Event', '/'],
-        ['mdi-send', 'Friend', '/about'],
-        // ['mdi-delete', 'Trash', '/about'],
+        ['mdi-send', 'Friend', '/myfriend'],
+        ['mdi-human', 'MyProfile', '/myprofile'],
         // ['mdi-alert-octagon', 'Spam', '/about'],
     ],
     }),
