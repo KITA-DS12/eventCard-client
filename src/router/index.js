@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import MyEvent from "../views/EventManagement.vue";
 import MyFriend from "../views/MyFriend.vue";
 import MyProfile from "../views/MyProfile.vue";
-import Login from "../views/LogIn.vue";
+import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
 import Top from "../views/TopPage.vue";
 // import JoinedEvent from '../views/JoinedEvent.vue'
@@ -13,7 +13,7 @@ const routes = [
   { path: "/myevent", name: "MyEvent", component: MyEvent },
   { path: "/myfriend", name: "MyFriend", component: MyFriend },
   { path: "/myprofile", name: "MyProfile", component: MyProfile },
-  { path: "/login", name: "LogIn", component: Login },
+  { path: "/signin", name: "SignIn", component: SignIn },
   { path: "/signup", name: "SignUp", component: SignUp },
   // { path: '/joinedevent', name: 'JoinedEvent', component: JoinedEvent },
 ];
