@@ -36,6 +36,7 @@
                 <v-card>
                     <v-card-title>
                     <span class="text-h5">イベントを登録する</span>
+                    
                     </v-card-title>
                     <v-card-text>
                     <v-container>
@@ -112,6 +113,7 @@
                     </v-card-actions>
                 </v-card>
                 </v-dialog>
+                
                 <!-- <v-btn size="x-large" color="white" variant="text" icon="mdi-qrcode-scan" class="add-btn qr-btn"></v-btn> -->
             </v-row>
             </v-img>
@@ -160,7 +162,24 @@
                     </div>
                 </v-row>
                 <br>
-                <v-btn color="primary">QRコードを表示する</v-btn>
+                
+                <div class="text-center">
+                    <v-dialog
+                    v-model="dialog_qr"
+                    width="auto"
+                    >
+                    <template v-slot:activator="{ props }">
+                        <v-btn color="primary" v-bind="props">QRコードを表示する</v-btn>
+                    </template>
+                
+                    <v-card>
+                        <vue-qrcode :value="'http://localhost:5173/myevent'" tag="img"></vue-qrcode>
+                        <v-card-actions>
+                        <v-btn color="primary" block @click="dialog_qr = false">閉じる</v-btn>
+                        </v-card-actions>
+                    </v-card>
+                    </v-dialog>
+                </div>
             </div>
             </v-timeline-item>
         </v-timeline>
@@ -196,6 +215,9 @@
 <script>
 import Navbar from "../components/NavBar.vue";
 import AddEvent from "../components/AddEvent.vue";
+import VueQrcode from "@chenfengyuan/vue-qrcode";
+
+
 export default {
     data: () => ({
         cards: ['Today', 'Yesterday'],
@@ -249,7 +271,8 @@ export default {
             },
         ],
         dialog: false,
+        dialog_qr: false,
     }),
-    components: { Navbar, AddEvent }
+    components: { Navbar, AddEvent, VueQrcode }
 }
 </script>

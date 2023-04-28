@@ -112,6 +112,7 @@
                         </v-card-actions>
                     </v-card>
                     </v-dialog>
+                    
                     <v-btn size="x-large" color="white" variant="text" icon="mdi-qrcode-scan" class="add-btn qr-btn"></v-btn>
                 </v-row>
                 </v-img>
@@ -196,6 +197,8 @@
     
     <script>
     import Navbar from "../components/NavBar.vue";
+    import QrcodeReader from '../components/vue-qrcode-reader';
+
     export default {
         data: () => ({
             cards: ['Today', 'Yesterday'],
@@ -250,6 +253,6 @@
             ],
             dialog: false,
         }),
-        components: { Navbar }
+        components: { Navbar, QrcodeReader }
     }
     </script>
