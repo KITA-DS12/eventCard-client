@@ -4,45 +4,20 @@
       <v-card class="login-form">
         <v-card-title class="login-title">SignUp</v-card-title>
         <v-card-subtitle>ユーザー情報をご入力ください</v-card-subtitle>
-        <v-btn text class="to-login" @click="login">ログイン画面はこちら</v-btn>
+        <v-btn text class="to-login" to="/signin">ログイン画面はこちら</v-btn>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field
-            v-model="name"
-            :rules="nameRules"
-            label="UserName"
-            required
-          ></v-text-field>
+          <v-text-field v-model="name" :rules="nameRules" label="UserName" required></v-text-field>
 
-          <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-            required
-          ></v-text-field>
+          <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
 
-          <v-text-field
-            v-model="password"
-            type="password"
-            label="Password"
-          ></v-text-field>
+          <v-text-field v-model="password" type="password" label="Password"></v-text-field>
 
-          <v-btn
-            color="success"
-            class="login-btn"
-            @click="submit"
-            :disabled="isValid"
-          >
+          <v-btn color="success" class="login-btn" @click="submit" :disabled="isValid">
             SIGN UP
           </v-btn>
 
           <v-btn> CLEAR </v-btn>
-          <v-alert
-            dense
-            outlined
-            type="error"
-            class="error-message"
-            v-if="errorMessage"
-          >
+          <v-alert dense outlined type="error" class="error-message" v-if="errorMessage">
             {{ errorMessage }}
           </v-alert>
         </v-form>
@@ -128,7 +103,7 @@ export default {
           localStorage.message = "新規作成に成功しました";
 
           // Loginにリダイレクト処理
-          // this.$router.push("/login");
+          this.$router.push("/signin");
         })
         .catch((error) => {
           console.log("fail", error);
@@ -147,13 +122,15 @@ export default {
           profile_icon: "",
         })
         .then((res) => {
-          console.log("SIGN UP", res.data);
-          sessionStorage.setItem("uid", res.data.uid);
-          sessionStorage.setItem("icon", res.data.profile_icon);
+          const auth = {
+            name: res.data.username,
+            email: res.data.email,
+            uid: res.data.uid,
+            icon: res.data.profile_icon,
+            //  refreshToken: result.user.refreshToken,
+          };
+          sessionStorage.setItem("user", JSON.stringify(auth));
         });
-    },
-    login() {
-      window.location.href = "/login";
     },
   },
 };
