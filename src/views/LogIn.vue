@@ -3,7 +3,7 @@
         <v-main>
             <div class="login-box">
                 <v-card class="login-form">
-                  <v-card-title class="login-title">Login</v-card-title>
+                  <v-card-title class="login-title">Signin</v-card-title>
                   <v-card-subtitle>ユーザー情報をご入力ください</v-card-subtitle>
                   <v-btn @click="signup" class="to-signup">新規登録はこちら</v-btn>
                   <!-- <v-btn text color="light-blue" to="signup">signin</v-btn> -->
@@ -100,7 +100,7 @@
 </style>
 
 <script>
-//   import firebase from "@/firebase/firebase"
+  import firebase from "../firebase/firebase"
 
   export default {
     data: () => ({

@@ -90,7 +90,7 @@
   </style>
   
   <script>
-    // import firebase from "@/firebase/firebase"
+    import firebase from "../firebase/firebase"
 
     export default {
       data: () => ({

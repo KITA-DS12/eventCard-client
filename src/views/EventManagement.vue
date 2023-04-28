@@ -14,14 +14,14 @@
         <v-card>
             <v-img
             height="200"
-            src="https://images.unsplash.com/photo-1526378787940-576a539ba69d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTgwfDB8MXxzZWFyY2h8Mnx8UG9zdC1pdHN8ZW58MHx8fHwxNjgyNDMyODI3&ixlib=rb-4.0.3&q=80&w=2400"
+            src="https://cdn.pixabay.com/photo/2017/08/10/05/56/calendar-2618814_1280.jpg"
             cover
             class="text-white align-end"
             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
             >
             
             <div class="font-weight-bold ms-1 mb-2">
-                <h1 class="card-title">参加したイベント一覧</h1>
+                <h1 class="card-title">主催したイベント一覧</h1>
             </div>
             <v-row class="justify-end">
                 
@@ -112,9 +112,10 @@
                     </v-card-actions>
                 </v-card>
                 </v-dialog>
-                <v-btn size="x-large" color="white" variant="text" icon="mdi-qrcode-scan" class="add-btn qr-btn"></v-btn>
+                <!-- <v-btn size="x-large" color="white" variant="text" icon="mdi-qrcode-scan" class="add-btn qr-btn"></v-btn> -->
             </v-row>
             </v-img>
+            <AddEvent />
             
     
             
@@ -159,9 +160,7 @@
                     </div>
                 </v-row>
                 <br>
-                <v-avatar color="surface-variant" size="40" class="friends"></v-avatar>
-                <v-avatar color="surface-variant" size="40" class="friends"></v-avatar>
-                <v-avatar color="surface-variant" size="40" class="friends"></v-avatar>
+                <v-btn color="primary">QRコードを表示する</v-btn>
             </div>
             </v-timeline-item>
         </v-timeline>
@@ -196,6 +195,7 @@
 
 <script>
 import Navbar from "../components/NavBar.vue";
+import AddEvent from "../components/AddEvent.vue";
 export default {
     data: () => ({
         cards: ['Today', 'Yesterday'],
@@ -250,6 +250,6 @@ export default {
         ],
         dialog: false,
     }),
-    components: { Navbar }
+    components: { Navbar, AddEvent }
 }
 </script>

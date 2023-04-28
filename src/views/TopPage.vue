@@ -2,7 +2,7 @@
     <v-app>
         <div class="main">
             <h2 class="subtitle">イベントを通じて出会った仲間との繋がりを大切に</h2>
-            <h1 class="app-name">Sync Meat</h1>
+            <h1 class="app-name">Sync Meets</h1>
             <h2>Sync Meatはあなたのイベントでの出会いを記憶し、それを次のアクションへと繋げます</h2>
             <v-container class="btn-area">
                 <v-row>

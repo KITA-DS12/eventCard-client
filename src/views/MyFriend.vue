@@ -14,7 +14,7 @@
             <v-card>
                 <v-img
                 height="200"
-                src="https://pixabay.com/get/g65e06d76349798dd969cc96554c06c18ae675ca023ef6d3ffc1362325f422f691aaede92387b1356b6dc5b0e10acaa66638f64d66b9f886d8137fcf3beedc57a_640.jpg"
+                src="https://cdn.pixabay.com/photo/2018/01/19/07/57/shaking-hands-3091906_1280.jpg"
                 cover
                 class="text-white align-end"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -114,6 +114,7 @@
                     </v-dialog> -->
                     <v-btn size="x-large" color="white" variant="text" icon="mdi-qrcode-scan" class="add-btn qr-btn"></v-btn>
                 </v-row>
+                <MadeFriend/>
                 </v-img>
                 
         
@@ -188,6 +189,8 @@
     
     <script>
     import Navbar from "../components/NavBar.vue";
+    import MakeFriend from "../components/MakeFriend.vue";
+    import MadeFriend from "../components/MadeFriend.vue";
     export default {
         data: () => ({
             cards: ['Event1', 'Event2', 'Event3', 'Event4'],
@@ -242,6 +245,6 @@
             ],
             dialog: false,
         }),
-        components: { Navbar }
+        components: { Navbar, MakeFriend, MadeFriend }
     }
     </script>

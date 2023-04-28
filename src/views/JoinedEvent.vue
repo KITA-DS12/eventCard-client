@@ -14,18 +14,18 @@
             <v-card>
                 <v-img
                 height="200"
-                src="https://cdn.pixabay.com/photo/2018/03/20/20/15/laptop-3244483_1280.jpg"
+                src="https://images.unsplash.com/photo-1526378787940-576a539ba69d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxNTgwfDB8MXxzZWFyY2h8Mnx8UG9zdC1pdHN8ZW58MHx8fHwxNjgyNDMyODI3&ixlib=rb-4.0.3&q=80&w=2400"
                 cover
                 class="text-white align-end"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                 >
                 
                 <div class="font-weight-bold ms-1 mb-2">
-                    <h1 class="card-title">プロフィール</h1>
+                    <h1 class="card-title">参加したイベント一覧</h1>
                 </div>
                 <v-row class="justify-end">
                     
-                    <!-- <v-dialog
+                    <v-dialog
                     v-model="dialog"
                     persistent
                     width="1024"
@@ -111,56 +111,61 @@
                         </v-btn>
                         </v-card-actions>
                     </v-card>
-                    </v-dialog> -->
+                    </v-dialog>
                     <v-btn size="x-large" color="white" variant="text" icon="mdi-qrcode-scan" class="add-btn qr-btn"></v-btn>
                 </v-row>
                 </v-img>
                 
         
-                <v-card
-                    color="#952175"
-                    theme="dark"
-                    class="profile-card"
-                    width="425px"
-                    height="260px"
+                
+            
+            <v-timeline align="start" side="end" class="timelines">
+                <v-timeline-item
+                v-for="(event, i) in event_data"
+                :key="i"
+                :dot-color="event.color"
+                size="small"
                 >
-                <v-responsive :aspect-ratio="5/3">
-                    
+                <template v-slot:opposite>
+                    <div
+                    :class="`pt-1 headline font-weight-bold text-${event.color}`"
+                    v-text="event.startdate"
+                    ></div>
+                    <div
+                    :class="`pt-1 headline font-weight-bold text-${event.color} text-center`"
+                    >|</div>
+                    <div
+                    :class="`pt-1 headline font-weight-bold text-${event.color}`"
+                    v-text="event.enddate"
+                    ></div>
+                </template>
+                <div>
+                    <h2 :class="`mt-n1 headline font-weight-light mb-4 text-${event.color}`">
+                        <div
+                        :class="`pt-1 headline font-weight-bold text-${event.color}`"
+                        v-text="event.eventname"
+                        ></div>
+                    </h2>
+                    <div
+                    v-text="event.text">
+                    </div>
+                    <br>
+                    <v-row>
+                        <v-space/>
+                        <v-icon>mdi-map-marker</v-icon>
                         
-                        <v-card-title class="text-h5" style="margin-top: 10px;">
-                        イベント 太郎
-                        </v-card-title>
-
-                        <v-card-subtitle style="margin-top: -10px; margin-left: 5px; margin-bottom: 5px;">SDGs大学ウェルビーイング学部</v-card-subtitle>
-                        <v-img
-                            src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                            aspect-ratio="16/9"
-                            cover
-                        >
-                            <div class="d-flex flex-no-wrap justify-space-between">
-                                <div>
-                                <v-card-actions>
-                                    <v-avatar
-                                        class="mb-4 profile-avatar"
-                                        color="grey-darken-1"
-                                        size="140"
-                                    ></v-avatar>
-                                </v-card-actions>
-                            </div>
-
-                            <v-avatar
-                                class="mb-4 profile-qr"
-                                color="grey-darken-1"
-                                size="140"
-                                rounded="0"
-                            ></v-avatar>
-                            </div>
-                        </v-img>
-                </v-responsive>
-                </v-card>
-                <EditProfile />
-                <!-- <v-btn color="primary" @click="dialog = false">プロフィール情報を更新する</v-btn> -->
-            </v-card>
+                        <div
+                        v-text="event.loc">
+                        </div>
+                    </v-row>
+                    <br>
+                    <v-avatar color="surface-variant" size="40" class="friends"></v-avatar>
+                    <v-avatar color="surface-variant" size="40" class="friends"></v-avatar>
+                    <v-avatar color="surface-variant" size="40" class="friends"></v-avatar>
+                </div>
+                </v-timeline-item>
+            </v-timeline>
+        </v-card>
         </v-main>
     </v-app>
     </template>
@@ -186,28 +191,14 @@
     .qr-btn {
         margin-right: 10px;
     }
-
-    .profile-card {
-        margin: 30px;
-    }
-
-    .profile-avatar {
-        margin: 20px 0px 10px 35px;
-    }
-
-    .profile-qr {
-        margin: 25px 35px 10px 0px;
-    }
     
     </style>
     
     <script>
     import Navbar from "../components/NavBar.vue";
-    import EditProfile from "../components/EditProfile.vue";
-    
     export default {
         data: () => ({
-            cards: ['Event1', 'Event2', 'Event3', 'Event4'],
+            cards: ['Today', 'Yesterday'],
             drawer: null,
             links: [
                 ['mdi-inbox-arrow-down', 'Inbox'],
@@ -259,6 +250,6 @@
             ],
             dialog: false,
         }),
-        components: { Navbar, EditProfile }
+        components: { Navbar }
     }
     </script>
