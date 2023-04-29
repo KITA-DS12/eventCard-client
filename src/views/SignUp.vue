@@ -1,10 +1,12 @@
 <template>
   <v-app>
+    <v-main>
+      <v-container><v-row align-content="center" :style="style">
     <div class="login-box">
       <v-card class="login-form">
-        <v-card-title class="login-title">SignUp</v-card-title>
+        <v-card-title class="text-center">SignUp</v-card-title>
         <v-card-subtitle>ユーザー情報をご入力ください</v-card-subtitle>
-        <v-btn text class="to-login" to="/signin">ログイン画面はこちら</v-btn>
+        <!-- <v-btn text class="to-login" to="/signin">ログイン画面はこちら</v-btn> -->
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field
             v-model="name"
@@ -31,11 +33,13 @@
             class="login-btn"
             @click="submit"
             :disabled="isValid"
+            block
           >
             SIGN UP
           </v-btn>
 
-          <v-btn> CLEAR </v-btn>
+          <!-- <v-btn> CLEAR </v-btn> -->
+          <v-btn to="/signin" class="to-login d-flex justify-center">ログインはこちら</v-btn>
           <v-alert
             dense
             outlined
@@ -48,18 +52,20 @@
         </v-form>
       </v-card>
     </div>
+      </v-row></v-container>
+    </v-main>
   </v-app>
 </template>
 
 <style scoped>
 .login-form {
-  margin-top: 150px;
   padding: 30px;
+  max-width: 2000px;
 }
 
 .login-box {
-  width: 95%;
-  margin: 0px auto;
+  max-width: 2000px;
+  margin: auto;
   padding: 30px;
 }
 
@@ -99,14 +105,28 @@ export default {
     ],
     password: "",
     errorMessage: "",
+    windowSize: {
+      x: 0,
+      y: 0,
+    },
   }),
+  mounted () {
+    this.onResize()
+  },
   computed: {
     isValid() {
       console.log("isValid", this.valid);
       return !this.valid;
     },
+    style () {
+      return 'height: ' + this.windowSize.y + 'px;'
+    }
   },
   methods: {
+    onResize () {
+      this.windowSize = { x: window.innerWidth, y: window.innerHeight }
+      this.iconSize = window.innerHeight * 0.1
+    },
     validate() {
       this.$refs.form.validate();
     },
