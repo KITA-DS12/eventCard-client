@@ -1,11 +1,10 @@
 <template>
     <v-dialog
         v-model="dialog"
-        persistent
         width="1024"
         >
         <template v-slot:activator="{ props }">
-            <v-btn color="primary" @click="dialog = false">プロフィール情報を更新する</v-btn>
+            <v-btn color="primary" @click="dialog = true">プロフィール情報を更新する</v-btn>
         </template>
         <v-card>
             <v-card-title>
@@ -111,7 +110,7 @@
 import Background from "../components/CardBackground.vue";
 export default {
     data: () => ({
-        dialog: true,
+        dialog: false,
     }),
     components: { Background }
 }

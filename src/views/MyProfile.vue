@@ -116,7 +116,8 @@
                 </v-row>
                 </v-img>
                 
-        
+                <v-container>
+                    <v-row justify="center">
                 <v-card
                     color="#952175"
                     theme="dark"
@@ -158,8 +159,10 @@
                         </v-img>
                 </v-responsive>
                 </v-card>
+            </v-row>
                 <EditProfile />
                 <!-- <v-btn color="primary" @click="dialog = false">プロフィール情報を更新する</v-btn> -->
+            </v-container>
             </v-card>
         </v-main>
     </v-app>
