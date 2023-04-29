@@ -6,18 +6,43 @@
         <v-card-subtitle>ユーザー情報をご入力ください</v-card-subtitle>
         <v-btn text class="to-login" to="/signin">ログイン画面はこちら</v-btn>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field v-model="name" :rules="nameRules" label="UserName" required></v-text-field>
+          <v-text-field
+            v-model="name"
+            :rules="nameRules"
+            label="UserName"
+            required
+          ></v-text-field>
 
-          <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+          <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            label="E-mail"
+            required
+          ></v-text-field>
 
-          <v-text-field v-model="password" type="password" label="Password"></v-text-field>
+          <v-text-field
+            v-model="password"
+            type="password"
+            label="Password"
+          ></v-text-field>
 
-          <v-btn color="success" class="login-btn" @click="submit" :disabled="isValid">
+          <v-btn
+            color="success"
+            class="login-btn"
+            @click="submit"
+            :disabled="isValid"
+          >
             SIGN UP
           </v-btn>
 
           <v-btn> CLEAR </v-btn>
-          <v-alert dense outlined type="error" class="error-message" v-if="errorMessage">
+          <v-alert
+            dense
+            outlined
+            type="error"
+            class="error-message"
+            v-if="errorMessage"
+          >
             {{ errorMessage }}
           </v-alert>
         </v-form>
@@ -113,7 +138,6 @@ export default {
         });
     },
     async createUser(uid) {
-      console.log(uid, this.name, this.email, "");
       await axios
         .post("user", {
           uid: uid,

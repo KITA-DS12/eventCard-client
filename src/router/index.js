@@ -6,6 +6,7 @@ import MyProfile from "../views/MyProfile.vue";
 import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
 import Top from "../views/TopPage.vue";
+import Friend from "../views/Friend.vue";
 // import JoinedEvent from '../views/JoinedEvent.vue'
 
 const routes = [
@@ -15,6 +16,7 @@ const routes = [
   { path: "/myprofile", name: "MyProfile", component: MyProfile },
   { path: "/signin", name: "SignIn", component: SignIn },
   { path: "/signup", name: "SignUp", component: SignUp },
+  { path: "/friend/:uid", name: "Friend", component: Friend },
   // { path: '/joinedevent', name: 'JoinedEvent', component: JoinedEvent },
 ];
 
