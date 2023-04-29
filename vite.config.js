@@ -6,6 +6,6 @@ import vuetify from "vite-plugin-vuetify";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/eventCard-client/",
+  base: "./",
   plugins: [vue(), vuetify({ autoImport: true })],
 });
