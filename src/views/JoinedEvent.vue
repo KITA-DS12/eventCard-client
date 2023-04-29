@@ -195,7 +195,7 @@
 
 <script>
 import Navbar from "../components/NavBar.vue";
-import QrcodeReader from "../components/vue-qrcode-reader";
+// import QrcodeReader from "../components/vue-qrcode-reader";
 
 export default {
   data: () => ({
@@ -251,6 +251,6 @@ export default {
     ],
     dialog: false,
   }),
-  components: { Navbar, QrcodeReader },
+  components: { Navbar },
 };
 </script>
